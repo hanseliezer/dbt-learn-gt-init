@@ -4,8 +4,10 @@ with customers as (
         id as customer_id,
         first_name,
         last_name
-
-    from raw.jaffle_shop.customers
+    -- formatnya [nama project di BigQuery].[nama dataset].[tabel]
+    -- tabelnya dibuat manual dengan upload .csv yang ada di tutorial
+    -- langsung ke BigQuery
+    from jaffle-shop-dbt-479408.jaffle_shop.customers
 
 ),
 
@@ -17,7 +19,7 @@ orders as (
         order_date,
         status
 
-    from raw.jaffle_shop.orders
+    from jaffle-shop-dbt-479408.jaffle_shop.orders
 
 ),
 
