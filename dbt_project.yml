@@ -34,6 +34,15 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   jaffle_shop:
+    # per-folder setting
+    # staging tables are materialised as views bcs these are intermediary data
+    # and we want to keep them up-to-date per their sources
+    staging:
+      +materialized: view
+    # whereas these marts are the ones accessed by BI tools and as such needs to be
+    # quickly query-able
+    marts:
+      +materialized: table
     +materialized: view
 
     
